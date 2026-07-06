@@ -92,7 +92,6 @@ addToCartButtons.forEach(button => {
 // 🎬 تأثير 3D Tilt على بطاقات المنتجات
 // يتفاعل مع حركة الماوس لإعطاء إحساس ثلاثي الأبعاد
 // ========================================
-const productCards = document.querySelectorAll('.product-card');
 
 productCards.forEach(card => {
   card.addEventListener('mousemove', (e) => {
