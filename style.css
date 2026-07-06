@@ -571,3 +571,268 @@ img {
     transition-duration: 0.01ms !important;
   }
 }
+/* ========================================
+   🌙 الزخارف العربية الإسلامية المينيماليست
+   ======================================== */
+
+/* ========================================
+   ✨ فواصل زخرفية بين الأقسام
+   ======================================== */
+.ornamental-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem auto;
+  max-width: 400px;
+  gap: 1rem;
+}
+
+.ornamental-divider::before,
+.ornamental-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    to var(--direction, right),
+    transparent,
+    var(--accent-color),
+    transparent
+  );
+}
+
+.ornamental-divider::before { --direction: right; }
+.ornamental-divider::after { --direction: left; }
+
+.ornamental-divider svg {
+  width: 40px;
+  height: 40px;
+  fill: var(--accent-color);
+  opacity: 0.7;
+  transition: transform 0.5s ease;
+}
+
+.ornamental-divider:hover svg {
+  transform: rotate(45deg);
+}
+
+/* ========================================
+   🏷️ حدود مزخرفة للعناوين
+   ======================================== */
+.section-title {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  padding-bottom: 1.5rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 30px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 30'><path d='M60 0 L75 15 L60 30 L45 15 Z M30 15 L45 15 M75 15 L90 15 M0 15 L15 15 M105 15 L120 15' fill='none' stroke='%232c3e50' stroke-width='1.5'/><circle cx='60' cy='15' r='3' fill='%232c3e50'/></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.6;
+}
+
+/* 🎯 لتغيير لون الزخرفة في الوضع الداكن */
+[data-theme="dark"] .section-title::after {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 30'><path d='M60 0 L75 15 L60 30 L45 15 Z M30 15 L45 15 M75 15 L90 15 M0 15 L15 15 M105 15 L120 15' fill='none' stroke='%23ecf0f1' stroke-width='1.5'/><circle cx='60' cy='15' r='3' fill='%23ecf0f1'/></svg>");
+}
+
+/* ========================================
+   🌟 زخارف هندسية في زوايا Hero Section
+   ======================================== */
+.hero-corner {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  opacity: 0.15;
+  pointer-events: none;
+  animation: fadeIn3D 1.5s ease-out;
+}
+
+.hero-corner.top-right {
+  top: 20px;
+  right: 20px;
+}
+
+.hero-corner.bottom-left {
+  bottom: 20px;
+  left: 20px;
+  transform: rotate(180deg);
+}
+
+.hero-corner svg {
+  width: 100%;
+  height: 100%;
+  fill: var(--accent-color);
+}
+
+@keyframes fadeIn3D {
+  from {
+    opacity: 0;
+    transform: scale(0.5) rotate(0deg);
+  }
+  to {
+    opacity: 0.15;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.hero-corner.bottom-left {
+  animation-name: fadeIn3DFlipped;
+}
+
+@keyframes fadeIn3DFlipped {
+  from {
+    opacity: 0;
+    transform: scale(0.5) rotate(180deg);
+  }
+  to {
+    opacity: 0.15;
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+/* ========================================
+   🎭 نمط خلفية زخرفي خفيف (Islamic Pattern)
+   ======================================== */
+.pattern-bg {
+  position: relative;
+}
+
+.pattern-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'><path d='M30 0 L35 10 L45 10 L37 17 L40 27 L30 21 L20 27 L23 17 L15 10 L25 10 Z' fill='none' stroke='%232c3e50' stroke-width='0.5' opacity='0.1'/></svg>");
+  background-repeat: repeat;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pattern-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+[data-theme="dark"] .pattern-bg::before {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'><path d='M30 0 L35 10 L45 10 L37 17 L40 27 L30 21 L20 27 L23 17 L15 10 L25 10 Z' fill='none' stroke='%23ecf0f1' stroke-width='0.5' opacity='0.1'/></svg>");
+}
+
+/* ========================================
+   🖼️ إطار زخرفي حول بطاقات القيم
+   ======================================== */
+.value-card {
+  position: relative;
+  border: 1px solid var(--border-color);
+}
+
+.value-card::before,
+.value-card::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--accent-color);
+  opacity: 0.4;
+  transition: all 0.4s ease;
+}
+
+.value-card::before {
+  top: -2px;
+  right: -2px;
+  border-bottom: none;
+  border-left: none;
+}
+
+.value-card::after {
+  bottom: -2px;
+  left: -2px;
+  border-top: none;
+  border-right: none;
+}
+
+.value-card:hover::before,
+.value-card:hover::after {
+  width: 50px;
+  height: 50px;
+  opacity: 0.8;
+}
+
+/* ========================================
+   🌸 زخرفة في الفوتر
+   ======================================== */
+.footer {
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10'><path d='M0 5 Q 12.5 0, 25 5 T 50 5 T 75 5 T 100 5' fill='none' stroke='%232c3e50' stroke-width='1'/></svg>");
+  background-repeat: repeat-x;
+  background-size: 100px 4px;
+  opacity: 0.5;
+}
+
+[data-theme="dark"] .footer::before {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10'><path d='M0 5 Q 12.5 0, 25 5 T 50 5 T 75 5 T 100 5' fill='none' stroke='%23ecf0f1' stroke-width='1'/></svg>");
+}
+
+/* ========================================
+   💫 زخرفة متحركة حول اللوجو
+   ======================================== */
+.logo {
+  position: relative;
+  display: inline-block;
+}
+
+.logo::after {
+  content: '✦';
+  position: absolute;
+  top: -5px;
+  right: -15px;
+  font-size: 0.8rem;
+  color: var(--accent-color);
+  animation: rotateStar 8s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes rotateStar {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ========================================
+   📱 تعديل الزخارف للموبايل
+   ======================================== */
+@media (max-width: 768px) {
+  .hero-corner {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .ornamental-divider {
+    max-width: 250px;
+  }
+  
+  .section-title::after {
+    width: 80px;
+  }
+}
