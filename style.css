@@ -397,3 +397,177 @@ img {
     gap: 1.5rem;
   }
 }
+
+/* ========================================
+   🎬 أنيميشن 3D - يمكن تعديل القيم هنا
+   ======================================== */
+
+/* تأثير دخول العناصر من الأسفل مع دوران خفيف */
+@keyframes fadeInUp3D {
+  from {
+    opacity: 0;
+    transform: translateY(50px) rotateX(-15deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+  }
+}
+
+/* تأثير دوران مستمر للعناصر الزخرفية */
+@keyframes float3D {
+  0%, 100% {
+    transform: translateY(0) rotateX(0) rotateY(0);
+  }
+  50% {
+    transform: translateY(-20px) rotateX(10deg) rotateY(10deg);
+  }
+}
+
+/* تأثير نبض خفيف */
+@keyframes pulse3D {
+  0%, 100% {
+    transform: scale(1) rotateY(0);
+  }
+  50% {
+    transform: scale(1.05) rotateY(5deg);
+  }
+}
+
+/* ========================================
+   🏠 قسم Hero بتأثير 3D Parallax
+   ======================================== */
+.hero {
+  position: relative;
+  overflow: hidden;
+  perspective: 1000px; /* 🎯 عدّل هذه القيمة لتغيير عمق التأثير (كلما زادت قل العمق) */
+}
+
+.hero-content {
+  transform-style: preserve-3d;
+  animation: fadeInUp3D 1.2s ease-out;
+}
+
+.hero h1 {
+  transform: translateZ(50px); /* 🎯 عدّل القيمة لتغيير بروز النص للأمام */
+  text-shadow: 0 5px 15px var(--shadow);
+}
+
+.hero p {
+  transform: translateZ(30px);
+  animation: fadeInUp3D 1.2s ease-out 0.3s both;
+}
+
+.cta-button {
+  transform: translateZ(40px);
+  animation: fadeInUp3D 1.2s ease-out 0.6s both;
+}
+
+/* ========================================
+   ✨ أشكال زخرفية 3D متحركة في الخلفية
+   ======================================== */
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-color) 0%, transparent 70%);
+  opacity: 0.1;
+  animation: float3D 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hero::before {
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.hero::after {
+  bottom: 10%;
+  right: 10%;
+  animation-delay: 3s;
+}
+
+/* ========================================
+   👕 بطاقات المنتجات بتأثير 3D Tilt
+   ======================================== */
+.product-card {
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  will-change: transform; /* تحسين الأداء */
+}
+
+.product-card:hover {
+  transform: translateY(-10px) rotateX(5deg) rotateY(-5deg);
+  box-shadow: 0 20px 40px var(--shadow);
+}
+
+.product-image {
+  transform: translateZ(20px); /* 🎯 عدّل القيمة لبروز الصورة */
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-image {
+  transform: translateZ(40px) scale(1.05);
+}
+
+.product-info {
+  transform: translateZ(10px);
+}
+
+/* ========================================
+   📖 بطاقات القيم بتأثير دوران 3D
+   ======================================== */
+.value-card {
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+
+.value-card:hover {
+  transform: rotateY(10deg) rotateX(-5deg) scale(1.03);
+}
+
+.value-icon {
+  transform: translateZ(30px);
+  animation: pulse3D 3s ease-in-out infinite;
+}
+
+/* ========================================
+   🎯 تأثير Parallax على العناوين
+   ======================================== */
+.section-title {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.section-title:hover {
+  transform: translateZ(20px) scale(1.02);
+}
+
+/* ========================================
+   📱 إيقاف التأثيرات على الموبايل (للأداء)
+   ======================================== */
+@media (max-width: 768px) {
+  .hero::before,
+  .hero::after {
+    display: none;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+  }
+}
+
+/* ========================================
+   ⚡ تحسين الأداء للمستخدمين الذين يفضلون تقليل الحركة
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
