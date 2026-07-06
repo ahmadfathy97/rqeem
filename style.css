@@ -304,7 +304,6 @@ img {
 .value-card {
   background-color: var(--card-bg);
   padding: 2rem;
-  border-radius: 15px;
   box-shadow: 0 5px 15px var(--shadow);
 }
 
@@ -646,61 +645,6 @@ img {
 }
 
 /* ========================================
-   🌟 زخارف هندسية في زوايا Hero Section
-   ======================================== */
-.hero-corner {
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  opacity: 0.15;
-  pointer-events: none;
-  animation: fadeIn3D 1.5s ease-out;
-}
-
-.hero-corner.top-right {
-  top: 20px;
-  right: 20px;
-}
-
-.hero-corner.bottom-left {
-  bottom: 20px;
-  left: 20px;
-  transform: rotate(180deg);
-}
-
-.hero-corner svg {
-  width: 100%;
-  height: 100%;
-  fill: var(--accent-color);
-}
-
-@keyframes fadeIn3D {
-  from {
-    opacity: 0;
-    transform: scale(0.5) rotate(0deg);
-  }
-  to {
-    opacity: 0.15;
-    transform: scale(1) rotate(0deg);
-  }
-}
-
-.hero-corner.bottom-left {
-  animation-name: fadeIn3DFlipped;
-}
-
-@keyframes fadeIn3DFlipped {
-  from {
-    opacity: 0;
-    transform: scale(0.5) rotate(180deg);
-  }
-  to {
-    opacity: 0.15;
-    transform: scale(1) rotate(180deg);
-  }
-}
-
-/* ========================================
    🎭 نمط خلفية زخرفي خفيف (Islamic Pattern)
    ======================================== */
 .pattern-bg {
@@ -823,10 +767,7 @@ img {
    📱 تعديل الزخارف للموبايل
    ======================================== */
 @media (max-width: 768px) {
-  .hero-corner {
-    width: 80px;
-    height: 80px;
-  }
+ 
   
   .ornamental-divider {
     max-width: 250px;
