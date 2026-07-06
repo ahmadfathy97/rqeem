@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المنتجات - كلمة</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- الهيدر الموحد -->
+  <header class="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">كلمة</a>
+      
+      <nav>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html">الرئيسية</a></li>
+          <li><a href="products.html">المنتجات</a></li>
+          <li><a href="about.html">من نحن</a></li>
+        </ul>
+      </nav>
+      
+      <button class="theme-toggle" id="theme-toggle">🌙 الوضع الداكن</button>
+      <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+    </div>
+  </header>
+
+  <!-- ========================================
+       🛍️ قسم المنتجات مع الفلاتر
+       ======================================== -->
+  <section class="section">
+    <h2 class="section-title">جميع المنتجات</h2>
+    
+    <!-- أزرار الفلترة -->
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">الكل</button>
+      <button class="filter-btn" data-filter="حكمة">حكمة</button>
+      <button class="filter-btn" data-filter="حب">حب</button>
+      <button class="filter-btn" data-filter="قوة">قوة</button>
+    </div>
+
+    <!-- شبكة المنتجات -->
+    <div class="products-grid">
+      <!-- منتج 1 -->
+      <div class="product-card" data-category="حكمة">
+        <div class="product-image">صبر</div>
+        <div class="product-info">
+          <h3 class="product-title">تيشيرت "صبر"</h3>
+          <p class="product-price">١٩٩ ر.س</p>
+          <button class="product-button">أضف إلى السلة</button>
+        </div>
+      </div>
+
+      <!-- منتج 2 -->
+      <div class="product-card" data-category="حب">
+        <div class="product-image">وِدّ</div>
+        <div class="product-info">
+          <h3 class="product-title">تيشيرت "وِدّ"</h3>
+          <p class="product-price">١٩٩ ر.س</p>
+          <button class="product-button">أضف إلى السلة</button>
+        </div>
+      </div>
+
+      <!-- منتج 3 -->
+      <div class="product-card" data-category="حكمة">
+        <div class="product-image">عزم</div>
+        <div class="product-info">
+          <h3 class="product-title">تيشيرت "عزم"</h3>
+          <p class="product-price">١٩٩ ر.س</p>
+          <button class="product-button">أضف إلى السلة</button>
+        </div>
+      </div>
+
+      <!-- منتج 4 -->
+      <div class="product-card" data-category="قوة">
+        <div class="product-image">بأس</div>
+        <div class="product-info">
+          <h3 class="product-title">تيشيرت "بأس"</h3>
+          <p class="product-price">٢١٩ ر.س</p>
+          <button class="product-button">أضف إلى السلة</button>
+        </div>
+      </div>
+
+      <!-- منتج 5 -->
+      <div class="product-card" data-category="حب">
+        <div class="product-image">حنان</div>
+        <div class="product-info">
+          <h3 class="product-title">تيشيرت "حنان"</h3>
+          <p class="product-price">١٩٩ ر.س</p>
+          <button class="product-button">أضف إلى السلة</button>
+        </div>
+      </div>
+
+      <!-- منتج 6 -->
+      <div class="product-card" data-category="قوة">
+        <div class="product-image">عز</div>
+        <div class="product-info">
+          <h3 class="product-title">تيشيرت "عز"</h3>
+          <p class="product-price">٢١٩ ر.س</p>
+          <button class="product-button">أضف إلى السلة</button>
+        </div>
+      </div>
+
+      <!-- منتج 7 -->
+      <div class="product-card" data-category="حكمة">
+        <div class="product-image">روية</div>
+        <div class="product-info">
+          <h3 class="product-title">تيشيرت "روية"</h3>
+          <p class="product-price">١٩٩ ر.س</p>
+          <button class="product-button">أضف إلى السلة</button>
+        </div>
+      </div>
+
+      <!-- منتج 8 -->
+      <div class="product-card" data-category="حب">
+        <div class="product-image">مودة</div>
+        <div class="product-info">
+          <h3 class="product-title">تيشيرت "مودة"</h3>
+          <p class="product-price">١٩٩ ر.س</p>
+          <button class="product-button">أضف إلى السلة</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- الفوتر الموحد -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© 2026 كلمة - جميع الحقوق محفوظة</p>
+      <div class="social-links">
+        <a href="#" title="تويتر">🐦</a>
+        <a href="#" title="انستغرام">📷</a>
+        <a href="#" title="سناب شات">👻</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
