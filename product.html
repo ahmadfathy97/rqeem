@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تفاصيل المنتج - كلمة</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- الهيدر الموحد -->
+  <header class="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">كلمة</a>
+      
+      <nav>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html">الرئيسية</a></li>
+          <li><a href="products.html">المنتجات</a></li>
+          <li><a href="about.html">من نحن</a></li>
+        </ul>
+      </nav>
+      
+      <button class="theme-toggle" id="theme-toggle">🌙 الوضع الداكن</button>
+      <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+    </div>
+  </header>
+
+  <!-- ========================================
+       🛍️ تفاصيل المنتج
+       ======================================== -->
+  <main class="product-detail">
+    <!-- معرض الصور -->
+    <div class="product-gallery">
+      <div class="product-main-image">
+        <img id="mainImage" src="" alt="صورة المنتج">
+      </div>
+      <div class="product-thumbnails">
+        <div class="thumbnail active" onclick="changeImage(0)">
+          <img id="thumb0" src="" alt="صورة 1">
+        </div>
+        <div class="thumbnail" onclick="changeImage(1)">
+          <img id="thumb1" src="" alt="صورة 2">
+        </div>
+        <div class="thumbnail" onclick="changeImage(2)">
+          <img id="thumb2" src="" alt="صورة 3">
+        </div>
+        <div class="thumbnail" onclick="changeImage(3)">
+          <img id="thumb3" src="" alt="صورة 4">
+        </div>
+      </div>
+    </div>
+
+    <!-- معلومات المنتج -->
+    <div class="product-info-detail">
+      <h1 id="productName">جاري التحميل...</h1>
+      <div class="product-price-detail" id="productPrice">٠ ر.س</div>
+      <p class="product-description" id="productDesc">
+        تيشيرت بتصميم مينيماليست يحمل كلمة عربية فصحى، مصنوع من أجود أنواع القطن 100%، طباعة عالية الجودة تدوم طويلاً.
+      </p>
+
+      <!-- رسائل الخطأ والنجاح -->
+      <div class="error-message" id="errorMessage"></div>
+      <div class="success-message" id="successMessage"></div>
+
+      <!-- اختيار اللون -->
+      <div class="color-selector">
+        <label>اللون:</label>
+        <div class="color-options">
+          <div class="color-option selected" style="background-color: #ffffff; border: 1px solid #ddd;" 
+               data-color="white" data-color-name="أبيض" onclick="selectColor(this)"></div>
+          <div class="color-option" style="background-color: #000000;" 
+               data-color="black" data-color-name="أسود" onclick="selectColor(this)"></div>
+          <div class="color-option" style="background-color: #2c3e50;" 
+               data-color="navy" data-color-name="كحلي" onclick="selectColor(this)"></div>
+          <div class="color-option" style="background-color: #8b4513;" 
+               data-color="brown" data-color-name="بني" onclick="selectColor(this)"></div>
+          <div class="color-option" style="background-color: #556b2f;" 
+               data-color="olive" data-color-name="زيتي" onclick="selectColor(this)"></div>
+        </div>
+      </div>
+
+      <!-- اختيار المقاس -->
+      <div class="size-selector">
+        <label>المقاس:</label>
+        <div class="size-options">
+          <button class="size-option" data-size="S" onclick="selectSize(this)">S</button>
+          <button class="size-option" data-size="M" onclick="selectSize(this)">M</button>
+          <button class="size-option" data-size="L" onclick="selectSize(this)">L</button>
+          <button class="size-option" data-size="XL" onclick="selectSize(this)">XL</button>
+          <button class="size-option" data-size="XXL" onclick="selectSize(this)">XXL</button>
+        </div>
+        <div class="size-guide">
+          <a onclick="openSizeGuide()">دليل المقاسات</a>
+        </div>
+      </div>
+
+      <!-- زر الإضافة للسلة -->
+      <button class="add-to-cart" id="addToCartBtn" onclick="addToCart()">
+        أضف إلى السلة - <span id="totalPrice">١٩</span> ر.س
+      </button>
+
+      <!-- معلومات إضافية -->
+      <div class="product-meta">
+        <span>🚚 شحن مجاني للطلبات فوق ٥٠٠ ر.س</span>
+        <span>🔄 استرجاع خلال ١٤ يوم</span>
+        <span>✅ ضمان الجودة</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- مودال دليل المقاسات -->
+  <div class="modal" id="sizeGuideModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeSizeGuide()">×</button>
+      <h2>دليل المقاسات</h2>
+      <table class="size-table">
+        <thead>
+          <tr>
+            <th>المقاس</th>
+            <th>الصدر (سم)</th>
+            <th>الطول (سم)</th>
+            <th>الكتف (سم)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>S</td>
+            <td>96</td>
+            <td>68</td>
+            <td>44</td>
+          </tr>
+          <tr>
+            <td>M</td>
+            <td>104</td>
+            <td>70</td>
+            <td>46</td>
+          </tr>
+          <tr>
+            <td>L</td>
+            <td>112</td>
+            <td>72</td>
+            <td>48</td>
+          </tr>
+          <tr>
+            <td>XL</td>
+            <td>120</td>
+            <td>74</td>
+            <td>50</td>
+          </tr>
+          <tr>
+            <td>XXL</td>
+            <td>128</td>
+            <td>76</td>
+            <td>52</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- الفوتر الموحد -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© 2026 كلمة - جميع الحقوق محفوظة</p>
+      <div class="social-links">
+        <a href="#" title="تويتر">🐦</a>
+        <a href="#" title="انستغرام">📷</a>
+        <a href="#" title="سناب شات">👻</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="product.js"></script>
+</body>
+</html>
